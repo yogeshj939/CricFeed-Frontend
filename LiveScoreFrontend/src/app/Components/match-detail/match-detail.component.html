@@ -1,0 +1,44 @@
+<div class="myNav w-100">
+    <app-header></app-header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="justify-content-left navbar-nav ml-auto mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link">{{match.teamAName}} vs {{match.teamBName}}</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="d-flex justify-content-center parentBlock">
+    <div class="border border-dark rounded m-5 pl-3 pr-3 pt-2 pb-2">
+        <div>
+            <div class="ml-2 mb-3">
+                <p class="float-left mr-5">{{match.matchAt}} ({{match.matchType_Name}})</p>
+                <p *ngIf='match.matchPosition === "LIVE"' class="float-right ml-5"> 🟢 LIVE</p>
+                <p *ngIf='match.matchPosition === "TO START"' class="float-right ml-5"> 🔴 TO START</p>
+                <p *ngIf='match.matchPosition === "BREAK"' class="float-right ml-5"> 🟠 BREAK</p>
+                <p *ngIf='match.matchPosition === "FINISH"' class="float-right ml-5"> ⚫ FINISH</p>
+            </div>
+            <hr class="myHR">
+            <hr class="myHR">
+            <hr>
+            <div class="ml-2">
+                <p class="font-weight-bold font-italic float-left mr-5">{{match.teamAName}}</p>
+                <p class="font-weight-bold float-right ml-5">{{match.teamAScore}}/{{match.teamAWickets}} ({{match.teamBOvers}})</p>
+            </div>
+            <div class="ml-2 mb-3">
+                <p class="font-weight-bold font-italic float-left mr-5">{{match.teamBName}}</p>
+                <p class="font-weight-bold float-right ml-5">{{match.teamBScore}}/{{match.teamBWickets}} ({{match.teamAOvers}})</p>
+            </div>
+            <div class="ml-2">
+                <p class="float-left">{{match.matchStatus}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="w-100">
+    <app-footer></app-footer>
+</div>

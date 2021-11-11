@@ -1,0 +1,22 @@
+.myNav {
+    background-color: #257D78;
+}
+.myBlock:hover {
+    background-color: #6be7e1;
+}
+.myBlock {
+    width: 30%;
+}
+.parentBlock {
+    margin-left: 5%;
+    margin-right: 1%;
+}
+hr {
+    clear: both;
+}
+.myHR {
+    opacity: 0;
+}
+#login {
+    margin-right: 12%;
+}
