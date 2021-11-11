@@ -1,0 +1,23 @@
+<div class="matchCard" *ngFor="let match of matchList">
+  <mat-card [class.mat-elevation-z8]="true" mat-ripple>
+    <h3>Match {{match.matchNo}} , ICC T20 worldcup</h3>
+    <div>
+      <mat-grid-list cols="5" rowHeight="70px">
+        <mat-grid-tile colspan="2" rowspan="1">
+          <h2>{{match.team1}}</h2>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="1">
+          <h2>{{match.team1Score}}</h2>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="1">
+          <h2>{{match.team2}}</h2>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="3" rowspan="1">
+          <h2>{{match.team2Score}}</h2>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+    <h3>{{match.status}}</h3>
+  </mat-card>
+</div>
+

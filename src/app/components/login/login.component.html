@@ -1,0 +1,31 @@
+<div>
+   <div class="container">
+      <div class="row">
+         
+         <div class="backgroundImage" style="background-image: url(../../../assets/img/tekbackground.jpg);">
+            <img src="../../../assets/img/teksystemslogo.png" class="logo">
+            <div class="formfield">
+               <p>LOGIN</p>
+               <form [formGroup]="form" (ngSubmit)="submitForm()">
+                  <mat-form-field class="example-full-width" [style.width.px]=350>
+                     <mat-label>Username</mat-label>
+                     <input matInput type="text" [formControlName]="'username'" placeholder="Ex. abcd">
+                     <!-- <mat-error *ngIf="form.get('username').touched && form.get('username').hasError('required')">
+                Username is a required field
+              </mat-error> -->
+                  </mat-form-field>
+                  <br><br>
+                  <mat-form-field class="example-full-width" [style.width.px]=350>
+                     <mat-label>Password</mat-label>
+                     <input matInput type="password" [formControlName]="'password'">
+                     <!-- <mat-error *ngIf="form.get('password').touched && form.get('password').hasError('required')">
+                Password is a required field
+              </mat-error> -->
+                  </mat-form-field>
+                  <br><br>
+                  <button type="submit" [disabled]="form.invalid" class="button">Submit</button>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
