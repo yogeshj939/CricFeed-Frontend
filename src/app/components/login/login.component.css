@@ -16,33 +16,12 @@ button{
     left:0px;
 
 }
-img{
-    height: 95%;
-    width: 95%;
-    object-fit:cover; 
-  }
 .container{
-    min-height: 100%;
+    min-height: 100%; /* Mindesthöhe für moderne Browser */
     height:auto !important; 
     height:90%;
     width:90%;
     background-color: #fff;
-  }
-  .backgroundImage{
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height: auto;
-   left: 0;
-   margin: 0;
-   min-height: 100%;
-   min-width: 674px;
-   padding: 0;
-   position: fixed;
-   top: 0;
-   width: 100%;
-   z-index: -1;
   }
 p{
     font-size: 20px;
@@ -54,14 +33,12 @@ button{
     margin-left: 120px;
 }
 .formfield{
-    margin-top: 10%;
-    margin-left: 35%;
-    margin-right: 25%;
+    margin-top: 20%;
+    margin-left: 20%;
+    margin-right: 20%;
     padding: 30px 30px 30px 30px;
     border-style: groove;
     border-radius: 10px;
-    width: 32%;
-    background-color: #fff;
 }
 .logo{
     height:50px;
