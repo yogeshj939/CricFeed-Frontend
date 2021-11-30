@@ -1,36 +1,35 @@
+import { Innings } from "./Innings";
+import { Team } from "./Team";
+
 export class Match {
-    match_id!: number;
-    matchType_Name!: string;
-    teamAName!: string;
-    teamBName!: string;
-    battingTeamName!: string;
-    matchPosition!: string;
-    matchAt!: string;
-    matchStatus!: string;
-    teamAScore!: number;
-    teamAWickets!: number;
-    teamAOvers!: number;
-    teamBScore!: number;
-    teamBWickets!: number;
-    teamBOvers!: number;
+    
+    matchId!: number;
+    seriesName!: string;
+	teamA!: Team;
+	teamB!: Team;
+	isMatchLive!: boolean;
+	scheduledDate!: string;
+	creationDate!: string;
+	matchType!: string;
+	tossWonByTeam!: Team;
+	matchStatus!: string;
+    innings!: Innings[];
+	matchWonByTeam!: Team;
 
     constructor(data: any) {
         if(data) {
-            this.match_id = data.match_id;
-            this.matchType_Name = data.matchType_Name;
-            this.teamAName = data.teamAName;
-            this.teamBName = data.teamBName;
-            this.battingTeamName = data.battingTeamName;
-            this.matchPosition = data.matchPosition;
-            this.matchAt = data.matchAt;
+            this.matchId = data.matchId;
+            this.seriesName = data.seriesName;
+            this.teamA = data.teamA;
+            this.teamB = data.teamB;
+            this.isMatchLive = data.matchLive;
+            this.scheduledDate = data.scheduledDate;
+            this.creationDate = data.creationDate;
+            this.matchType = data.matchType;
+            this.tossWonByTeam = data.tossWonByTeam;
             this.matchStatus = data.matchStatus;
-            this.teamAScore = data.teamAScore;
-            this.teamBScore = data.teamBScore;
-            this.teamAWickets = data.teamAWickets;
-            this.teamBWickets = data.teamBWickets;
-            this.teamAOvers = data.teamAOvers;
-            this.teamBOvers = data.teamBOvers;
-
+            this.innings = data.innings;
+            this.matchWonByTeam = data.matchWonByTeam;
         }
     }
 }

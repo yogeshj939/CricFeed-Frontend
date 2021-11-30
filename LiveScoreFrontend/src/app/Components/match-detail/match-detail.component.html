@@ -4,36 +4,47 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="justify-content-left navbar-nav ml-auto mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link">{{match.teamAName}} vs {{match.teamBName}}</a>
+                    <a class="nav-link">{{match.teamA.teamName}} vs {{match.teamB.teamName}}</a>
                 </li>
             </ul>
         </div>
     </nav>
 </div>
 
-<div class="d-flex justify-content-center parentBlock">
-    <div class="border border-dark rounded m-5 pl-3 pr-3 pt-2 pb-2">
+<div class="d-flex justify-content-center">
+    <div class="parentBlock border border-dark rounded m-5 pl-3 pr-3 pt-2 pb-2">
         <div>
             <div class="ml-2 mb-3">
-                <p class="float-left mr-5">{{match.matchAt}} ({{match.matchType_Name}})</p>
-                <p *ngIf='match.matchPosition === "LIVE"' class="float-right ml-5"> 🟢 LIVE</p>
-                <p *ngIf='match.matchPosition === "TO START"' class="float-right ml-5"> 🔴 TO START</p>
-                <p *ngIf='match.matchPosition === "BREAK"' class="float-right ml-5"> 🟠 BREAK</p>
-                <p *ngIf='match.matchPosition === "FINISH"' class="float-right ml-5"> ⚫ FINISH</p>
+                <p class="float-left mr-5">{{match.seriesName}} ({{match.matchType}})</p>
+                <p *ngIf='match.isMatchLive' class="float-right ml-5"> 🟢 LIVE</p>
+                <p *ngIf='!match.isMatchLive' class="float-right ml-5"> ⚫ FINISH</p>
             </div>
             <hr class="myHR">
             <hr class="myHR">
             <hr>
             <div class="ml-2">
-                <p class="font-weight-bold font-italic float-left mr-5">{{match.teamAName}}</p>
-                <p class="font-weight-bold float-right ml-5">{{match.teamAScore}}/{{match.teamAWickets}} ({{match.teamBOvers}})</p>
+                <p class="font-weight-bold font-italic float-left mr-5">{{match.teamA.teamName}}</p>
+                <div *ngFor="let inning of match.innings">
+                    <p *ngIf='match.teamA.teamCode === inning.team.teamCode' class="font-weight-bold float-right ml-5">{{inning.teamScores}}/{{inning.teamWickets}} ({{inning.teamOver}}.{{inning.ballNo}}) | Extras - {{inning.inningExtra}}</p>
+                </div>
             </div>
+            <br>
+            <hr class="myHR">
             <div class="ml-2 mb-3">
-                <p class="font-weight-bold font-italic float-left mr-5">{{match.teamBName}}</p>
-                <p class="font-weight-bold float-right ml-5">{{match.teamBScore}}/{{match.teamBWickets}} ({{match.teamAOvers}})</p>
+                <p class="font-weight-bold font-italic float-left mr-5">{{match.teamB.teamName}}</p>
+                <div *ngFor="let inning of match.innings">
+                    <p *ngIf='match.teamB.teamCode === inning.team.teamCode' class="font-weight-bold float-right ml-5">{{inning.teamScores}}/{{inning.teamWickets}} ({{inning.teamOver}}.{{inning.ballNo}})  | Extras - {{inning.inningExtra}}</p>
+                </div>
             </div>
+            <hr class="myHR">
+            <hr class="myHR">
+            <hr class="myHR">
+            <hr>
             <div class="ml-2">
                 <p class="float-left">{{match.matchStatus}}</p>
+            </div>
+            <div class="ml-2">
+                <p class="float-right">{{match.scheduledDate}}</p>
             </div>
         </div>
     </div>

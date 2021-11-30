@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.matchDeatils.setMatch(null);
-    this.matchesLocation = 'data/matches.json';
+    this.matchesLocation = 'http://localhost:7002/cricfeed/getAllLiveMatches';
     this.httpClient.get(this.matchesLocation).subscribe(res => {
       this.matches = new Matches(res);
     })
