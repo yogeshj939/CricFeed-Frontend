@@ -1,15 +1,67 @@
 <div>
-  <div *ngFor="let ball of ballsOfOver; let ballIndex=index">
-    <mat-card class="ballCard" (click)="openDialog()" [class.mat-elevation-z8]="true" mat-ripple>
-      <mat-grid-list cols="6" rowHeight="70px">
-        <mat-grid-tile colspan="1" rowspan="1">
-          <h1>6</h1>
-        </mat-grid-tile>
-        <!-- <mat-divider style="width: 100%;"></mat-divider> -->
-        <mat-grid-tile colspan="5" rowspan="1">
-          Hasan Ali to Chris Greaves, no run, quick length ball and it goes through the batter as he wanted to punch it. The ball deviated a little and the umpires this time have taken another review as the keeper feels there was an edge and he has taken it.
-        </mat-grid-tile>
-      </mat-grid-list>
-    </mat-card>
-  </div>
+  <mat-card class="inningCard">
+    <mat-card-header>
+      <mat-card-title>
+        IND vs AUS
+      </mat-card-title>
+      <mat-card-subtitle>
+        Match type : Test
+      </mat-card-subtitle>
+      <mat-card-subtitle>
+        Innings 1
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <h2>IND : 246-6</h2>
+      <p>AUS : Yet to bat</p>
+    </mat-card-content>
+  </mat-card>
 </div>
+
+<mat-card>
+
+  <form [formGroup]="scoreForm">
+    <h2>Select Type of the ball : </h2>
+    <div class = "radioGroup">
+      <mat-radio-group aria-label="Select an option" formControlName="ballType" (change)="calculateScore()">
+          <mat-radio-button *ngFor="let ballType of ballTypeList"  [value]="ballType">
+            {{ballType}}
+          </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <!-- <div *ngIf="this.scoreForm.get('ballType')?.value === 'Wkt'" style="font-size: 12px;">
+      <mat-form-field formControlName="wicketType" appearance="fill" class="wicketType">
+        <mat-label>Wicket Type</mat-label>
+        <mat-select placeholder="Wicket Type">
+          <mat-option *ngFor="let wicketType of wicketTypeList" [value]="wicketType">
+            {{wicketType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> -->
+    <div *ngIf="this.scoreForm.get('ballType')?.value === 'OT'; else elseBlock1 ">
+      <input mat-input placeholder="Total runs Scored in overthrow" style="margin-bottom: 20px;" formControlName="runScored" (change)="calculateScore()">
+    </div>
+    <ng-template #elseBlock1>
+      <h2>Select Run scored in the ball : </h2>
+      <div class = "radioGroup">
+        <mat-radio-group aria-label="Select an option" formControlName="runScored" (change)="calculateScore()">
+          <mat-radio-button *ngFor="let runType of runTypeList"  [value]="runType">
+            {{runType}}
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </ng-template>
+    <div *ngIf="this.scoreForm.valid">
+      <h3>Run Scored : {{this.currentBallScore}}</h3>
+    </div>
+
+    <div style="width: 100%;">
+      <button mat-raised-button color="primary">Undo</button>
+      <button mat-raised-button color="primary" style="float:right;" (click)="calculateScore()">Next</button>
+    </div>
+  </form>
+
+</mat-card>
+
+

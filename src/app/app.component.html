@@ -1,1 +1,72 @@
-<router-outlet></router-outlet>
+<mat-toolbar class="toolbar">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+        menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+        close
+    </mat-icon>
+</button>
+  <img src="../../../assets/img/Teksystems-white.png" class="logo">
+  <span class="title-centre">CricFeed</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button class="example-icon favorite-icon"
+    aria-label="Example icon-button with account icon"
+    [matMenuTriggerFor]="account"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #account="matMenu">
+    <button mat-menu-item>Account Profile</button>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button" [routerLink]="'/match'">
+      <mat-icon class="sideNavIcon" >home</mat-icon>
+      <span>Home</span>
+    </button>
+    <button mat-button class="menu-button" [routerLink]="'/over'">
+        <mat-icon class="sideNavIcon" [routerLink]="'/over'">edit</mat-icon>
+        <span>Update Live Scorecard</span>
+    </button>
+    <button mat-button class="menu-button">
+        <mat-icon class="sideNavIcon">edit</mat-icon>
+        <span>Update Live Commentary</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon class="sideNavIcon">place</mat-icon>
+      <span>Recent Activity</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+        <mat-icon class="sideNavIcon">help</mat-icon>
+        <span>Help</span>
+    </button>
+    <mat-divider></mat-divider>
+  </mat-sidenav>
+  <mat-sidenav-content>
+      <!-- <div class="contentCard mat-elevation-z8">
+        <div class="content"> -->
+          <!-- <div style="background-image: url(../assets/img/Grass.jpg); background-repeat:no-repeat;"> -->
+            <div style="background-image: url(../assets/img/grass-3.jpeg); ">
+          <mat-card class="content">
+
+              <mat-card-content>
+                <router-outlet></router-outlet>
+              </mat-card-content>
+
+          </mat-card>
+        </div>
+        <!-- </div> -->
+
+        <!-- </div>
+      </div> -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

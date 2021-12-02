@@ -13,6 +13,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -27,7 +31,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatRadioModule
   ],
   exports: [
     MatCardModule,
@@ -41,7 +50,12 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     MatFormFieldModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

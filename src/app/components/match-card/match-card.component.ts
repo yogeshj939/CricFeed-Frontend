@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 export interface Match{
+  id:number
   team1 : string,
   team2 : string,
   venue : string,
@@ -9,6 +11,8 @@ export interface Match{
   team1Score : string,
   team2Score : string,
   matchNo : number
+  isMatchLive: boolean
+
 }
 
 @Component({
@@ -19,14 +23,18 @@ export interface Match{
 export class MatchCardComponent implements OnInit {
 
   matchList : Match[] = [
-    {team1 : "IND", team2 : "PAK", venue: "Dubai", status:"India Won the match by 2 wickets", team1Score : "136-8", team2Score:"135-8",matchNo:24},
-    {team1 : "AUS", team2 : "NZ", venue: "Abudhabi", status:"NZ Won the toss and chose to bat", team1Score : "-", team2Score:"-",matchNo:25},
-    {team1 : "SCO", team2 : "NAM", venue: "Sarjah", status:"NAM Won the match by 36 runs", team1Score : "122-8", team2Score:"158-8",matchNo:26}
+    {id:1,team1 : "IND", team2 : "PAK", venue: "Dubai", status:"India Won the match by 2 wickets", team1Score : "136-8", team2Score:"135-8",matchNo:24,isMatchLive: true},
+    {id:2,team1 : "AUS", team2 : "NZ", venue: "Abudhabi", status:"NZ Won the toss and chose to bat", team1Score : "-", team2Score:"-",matchNo:25,isMatchLive: false},
+    {id:3,team1 : "SCO", team2 : "NAM", venue: "Sarjah", status:"NAM Won the match by 36 runs", team1Score : "122-8", team2Score:"158-8",matchNo:26,isMatchLive: false}
   ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigateToScoreFeed(matchId:number):void{
+    this.router.navigate(['over',matchId]);
   }
 
 }

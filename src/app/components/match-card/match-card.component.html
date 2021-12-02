@@ -1,6 +1,8 @@
 <div class="matchCard" *ngFor="let match of matchList">
-  <mat-card [class.mat-elevation-z8]="true" mat-ripple>
-    <h3>Match {{match.matchNo}} , ICC T20 worldcup</h3>
+  <mat-card [class.mat-elevation-z8]="true" mat-ripple (click)="navigateToScoreFeed(match.id)">
+    <mat-card-content >
+    <h3>Match {{match.matchNo}} , ICC T20 worldcup
+      <button mat-raised-button class="liveButton" *ngIf="match.isMatchLive"><mat-icon>live_tv</mat-icon></button></h3>
     <div>
       <mat-grid-list cols="5" rowHeight="70px">
         <mat-grid-tile colspan="2" rowspan="1">
@@ -18,6 +20,8 @@
       </mat-grid-list>
     </div>
     <h3>{{match.status}}</h3>
+  </mat-card-content>
   </mat-card>
 </div>
+
 

@@ -8,7 +8,9 @@ const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'match', component: MatchCardComponent},
   { path: 'login', component: LoginComponent },
-  {path : 'over', component: OverComponent}
+  {path : 'over/:matchId', component: OverComponent},
+  { path: 'scoreFeed/:matchId', component: OverComponent},
+  { path: 'over', component: OverComponent}
 ];
 
 @NgModule({

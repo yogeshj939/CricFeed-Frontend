@@ -1,4 +1,27 @@
-.ballCard{
-  width: 50%;
-  margin: 10px;
+
+.inningCard{
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+mat-radio-button{
+  margin-left: 16px;
+}
+
+.radioGroup{
+  margin-top: 20px;
+  font-size: medium;
+  margin-bottom: 30px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  font-size: medium;
+}
+
+.wicketType{
+  font-size: small;
+}
+
+.ballScore{
+  font-size: small;
 }

@@ -1,0 +1,20 @@
+<mat-toolbar class="toolbar">
+  <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button> -->
+  <img src="../../../assets/img/teksystemslogo.png" class="logo">
+  <span class="title-centre">CricFeed</span>
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button class="example-icon favorite-icon"
+    aria-label="Example icon-button with account icon"
+    [matMenuTriggerFor]="menu"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Account Profile</button>
+    <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Logout</button>
+  </mat-menu>
+</mat-toolbar>

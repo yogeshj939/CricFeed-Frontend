@@ -6,19 +6,19 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { OverComponent } from './components/over/over.component';
 import { MaterialModule } from './material.module';
-import { BallComponent } from './components/ball/ball.component';
 import { MatchCardComponent } from './components/match-card/match-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OverComponent,
-    BallComponent,
     MatchCardComponent,
-    LoginComponent
+    LoginComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
